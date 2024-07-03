@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find my Pokemon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background-img"></div>
+        <div class="p-text"><h1>FIND MY POKEMON</h1></div>
+        <form id="user-form">
+            <div class="input-field">
+                <label for="fullName">Enter your full name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="input-field">
+                <label for="nickName">Enter your Nickname:</label>
+                <input type="text" id="nickName" name="nickName" required>
+            </div>
+            <a href="instructions.html"><button type="button" class="button blue">Instructions</button></a>
+            <button type="submit" id="play" class="button green">PLAY</button>
+        </form>
+    </div>
+    <audio autoplay loop>
+        <source src="game-bg-music.mp3" type="audio/mp3"> 
+    </audio>
+
+    <script>
+        const form = document.getElementById('user-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const nickName = document.getElementById('nickName').value.trim();
+
+            if (fullName !== '' && nickName !== '') {
+                window.location.href = 'game.html';
+            } else {
+                alert('Please fill out both Full Name and Nickname fields.');
+            }
+        });
+    </script>
+
+</body>
+</html>
